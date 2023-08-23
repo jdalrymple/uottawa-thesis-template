@@ -1,0 +1,145 @@
+\documentclass[12pt,oneside]{book}
+\usepackage[margin=3.25cm]{geometry}
+\usepackage{index}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage[sort,nocompress]{cite}
+\usepackage{notoccite}
+\usepackage[toc,page]{appendix}
+\usepackage{scrextend}
+\usepackage{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
+\usepackage{siunitx}
+\usepackage{pdflscape}
+\usepackage{svg}
+\usepackage[labelformat=simple]{subcaption}
+\usepackage{textcomp}
+\usepackage{acro}[=v3]
+\usepackage{float}
+\usepackage{mfirstuc}
+\usepackage{tabularray}
+\usepackage[raggedright]{titlesec}
+
+%*******************************************
+% Custom Configuration
+%*******************************************
+\renewcommand\thesubfigure{(\alph{subfigure})}
+
+\setlength{\parskip}{\baselineskip}%
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\makeatletter
+\newcommand\subsubsubsection{\@startsection{paragraph}{4}{\z@}{-2.5ex\@plus -1ex \@minus -.25ex}{1.25ex \@plus .25ex}{\normalfont\normalsize}}
+\makeatother
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\graphicspath{ {../images/} }
+
+% Tabularray Config
+\DefTblrTemplate{caption}{default}{}
+\DefTblrTemplate{entry}{default}{}
+\UseTblrLibrary{booktabs}
+%*******************************************
+% Global Variables
+%*******************************************
+\degreetitle{My thesis title here}
+
+\degreeauthor{Authors name}
+\degreeauthorid{Author STUDENT ID}
+\degreedate{Degree DATE}
+
+%*******************************************
+% Include Abbreviations helpers
+%*******************************************
+
+% For capitalized first letters of each word
+\NewAcroCommand\ACL{m}{%
+  \begingroup
+    \acsetup{uppercase/cmd=\ecapitalisewords}%
+    \Acl{#1}%
+  \endgroup
+}
+
+% For capitalized first letters of each word word with plural
+\NewAcroCommand\ACLP{m}{%
+  \begingroup
+    \acsetup{uppercase/cmd=\ecapitalisewords}%
+    \Aclp{#1}%
+  \endgroup
+}
+
+% Default to capitalized all letters in acronym list
+\acsetup{
+    uppercase/list,
+    list/uppercase/cmd = \ecapitalisewords
+}
+
+\input{Abbreviations.tex}
+
+%*******************************************
+% Document
+%*******************************************
+\begin{document}
+
+%FRONT MATTER*******************************
+\pagenumbering{roman}
+\coverpage
+
+
+\include{Abstract}
+\include{Acknowledgements}
+
+% TABLE OF CONTENTS + LISTS OF FIGS/TABLES
+\renewcommand\contentsname{Table of Contents}
+
+\tableofcontents
+
+\addcontentsline{toc}{chapter}{List of Acronyms}
+\printacronyms[sort=true]
+
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+
+% Hack: make sure arabic numerals start
+% on first page of the introduction.
+\pagebreak
+\pagenumbering{arabic}
+
+\renewcommand{\arraystretch}{1.4}
+
+%MAIN TEXT *********************************
+
+\include{Introduction}
+\include{Background}
+\include{ExperimentalMethods}
+\include{Evaluation}
+\include{Conclusion}
+
+\bibliographystyle{IEEEtran}
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{Bibliography}
+
+\begin{appendices}
+  \include{Appendix}
+\end{appendices}
+
+\end{document}

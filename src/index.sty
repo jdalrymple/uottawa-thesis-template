@@ -1,0 +1,59 @@
+\NeedsTeXFormat{LaTeX2e}[1996/12/01]
+\ProvidesPackage{index}[Style]
+
+% Commented out to allow geometry package to handle this correctly
+% You might want to alter the page width and height
+% you can edit below.  This will alter the line width lengths
+% \setlength{\textwidth}{15cm} %Default page width for book class is about 13cm
+% \setlength{\textheight}{24cm}  %Default page height for book class is about 19cm
+
+% Proposal Commands
+\newcommand{\kind}{thesis}
+\newcommand{\kindspelledout}{Master of Applied Science}
+\newcommand{\letters}{MASc}
+
+\newcommand{\degreetitle}[1]{\gdef \@degreetitle{#1}}
+\newcommand{\degreeauthor}[1]{\gdef \@degreeauthor{#1}}
+\newcommand{\degreeauthorid}[1]{\gdef \@degreeauthorid{#1}}
+\newcommand{\degreedate}[1]{\gdef \@degreedate{#1}}
+
+% **********************************************
+% *  Lets make the "proposal" declaration page *
+% **********************************************
+\newcommand*{\coverpage}{
+    \thispagestyle{empty}
+    \setcounter{page}{1}
+    % \setlength{\topskip}{2cm}
+    \begin{center}
+        \vspace*{1cm}
+        \renewcommand{\baselinestretch}{1.0}
+        \fontsize{14.4}{20}\selectfont
+        \textbf{\@degreetitle} \\
+        \vspace{1cm}
+        \fontsize{12}{20}\selectfont
+        \vspace{1.5cm}
+        A \kind ~submitted \\
+        in partial fulfillment of the requirements for the degree of \\
+        \vspace{0.3cm}
+        \textbf{\MakeUppercase{\kindspelledout}} \\
+        \vspace{0.3cm}
+        in Biomedical Engineering \\
+        \vspace{1.5cm}
+        By\\
+        \@degreeauthor \\
+        \vspace{0.7cm}
+
+        \@degreedate
+
+        \vspace{0.7cm}
+        Ottawa-Carleton Institute for Biomedical Engineering \\
+        Department of Mechanical Engineering\\
+        \vspace{0.7cm}
+
+        University of Ottawa \\
+        Ottawa, Ontario, Canada K1N 6N5 \\
+        \vspace{1,5cm}
+
+        \copyright\ Authors Name, Ottawa, Canada, 2023
+    \end{center}
+}

@@ -1,0 +1,49 @@
+\chapter{Background\label{ch:background}}
+  Phasellus quis justo elit. Vivamus vehicula ligula nec dolor lobortis vehicula. Proin lobortis lacinia mauris, condimentum tempus purus rhoncus a. Aliquam ac dictum nunc, nec laoreet nisl. Maecenas cursus urna eu orci facilisis vehicula. Aliquam sit amet sem sit amet libero ullamcorper gravida. Fusce at maximus sem, ut euismod diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et justo feugiat, facilisis tellus quis, convallis nibh. Duis feugiat elit eros, venenatis dapibus ante venenatis non. Curabitur ut ante sed nisl pretium cursus vel a velit.
+  \pagebreak
+
+  \section{Section One\label{sec:background-one}}
+    Sed ac euismod odio \cref{tbl:some-sample-table}. Maecenas varius ut libero iaculis fringilla. Morbi congue ultricies nunc, et semper quam pretium eu. Phasellus et lacinia massa. In hac habitasse platea dictumst. Proin vitae ex a diam posuere ultricies. Praesent ex lorem, tincidunt in dignissim sit amet, laoreet ac turpis. Donec vestibulum eros sed velit ultricies tincidunt. Vestibulum ut pulvinar augue, quis cursus mi. Vestibulum ac risus a ipsum aliquet lacinia. Proin consectetur, neque a luctus venenatis, nunc mi ornare sapien, at varius dolor lorem quis arcu. Donec sed ante mattis tellus gravida tristique ut vel velit. Vestibulum vitae odio ut leo finibus hendrerit id maximus nisl. Donec blandit vulputate felis sit amet laoreet. Maecenas lobortis interdum ligula tempus pulvinar. Mauris pretium odio eget maximus ultrices \cref{eq:someequation}.
+
+    \begin{equation}
+      1 + 1 = 2
+      \label{eq:someequation}
+    \end{equation}
+
+    \begin{table}[!hbt]
+      \tiny
+      \caption{Some sample table}
+      \begin{talltblr}[
+        note{$\dagger$} = {Footnote example},
+        entry=none,
+        label=none
+      ]{colspec = {X[-1,l] *{1}{X[c,m]}}}
+        \toprule
+        \SetCell[r=1]{c} Property & \SetCell[c=1]{c} Value (\textit{units})\\
+        \midrule
+        Property One & 100 $\pm$\\
+        Property Two & 200 \TblrNote{$\dagger$} \\
+        \bottomrule
+      \end{talltblr}
+      \label{tbl:some-sample-table}
+    \end{table}
+
+    % Put images in the images folder
+
+    % \begin{figure}[!htb]
+    %   \centering
+    %   \begin{subfigure}{0.4\textwidth}
+    %     \centering
+    %     \includesvg[width=0.65\textwidth, keepaspectratio]{sampleimage.svg}
+    %     \caption{}
+    %     \label{fig:background-image-one}
+    %   \end{subfigure}%
+    %   \begin{subfigure}{0.4\textwidth}
+    %     \centering
+    %     \includesvg[width=0.75\textwidth, keepaspectratio]{sampleimage2.svg}
+    %     \caption{}
+    %     \label{fig:background-image-two}
+    %   \end{subfigure}
+    %   \caption{Some caption.}
+    %   \label{fig:background-image}
+    % \end{figure}
